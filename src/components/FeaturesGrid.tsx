@@ -76,6 +76,26 @@ const FeaturesGrid = () => {
           ))}
         </div>
       </div>
+      
+      {/* Updates Section */}
+      <div id="updates" className="mt-20 pt-20 border-t border-gray-200">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">Recent Updates</h2>
+          <p className="text-lg text-gray-600">Stay informed about the latest improvements and bug fixes</p>
+        </div>
+      </div>
+      
+      {/* About Section */}
+      <div id="about" className="mt-20 pt-20 border-t border-gray-200">
+        <div className="text-center">
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">About This Blog</h2>
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            This blog is dedicated to keeping the Notion community updated with the latest features, 
+            improvements, and innovations. We cover everything from AI-powered tools to collaboration 
+            enhancements that make Notion the ultimate productivity workspace.
+          </p>
+        </div>
+      </div>
     </section>
   );
 };

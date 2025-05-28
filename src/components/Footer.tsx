@@ -3,6 +3,13 @@ import React from 'react';
 import { Link } from 'lucide-react';
 
 const Footer = () => {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <footer className="bg-gray-900 text-white py-16 px-4">
       <div className="container mx-auto max-w-6xl">
@@ -20,7 +27,10 @@ const Footer = () => {
               Your go-to source for all things Notion.
             </p>
             <div className="flex space-x-4">
-              <button className="bg-gray-800 hover:bg-gray-700 px-4 py-2 rounded-lg transition-colors">
+              <button 
+                onClick={() => window.open('https://www.notion.so', '_blank')}
+                className="bg-gray-800 hover:bg-gray-700 px-4 py-2 rounded-lg transition-colors"
+              >
                 Subscribe to Updates
               </button>
             </div>
@@ -30,10 +40,38 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2 text-gray-400">
-              <li><a href="#features" className="hover:text-white transition-colors">Latest Features</a></li>
-              <li><a href="#updates" className="hover:text-white transition-colors">Recent Updates</a></li>
-              <li><a href="#about" className="hover:text-white transition-colors">About</a></li>
-              <li><a href="#contact" className="hover:text-white transition-colors">Contact</a></li>
+              <li>
+                <button 
+                  onClick={() => scrollToSection('features')}
+                  className="hover:text-white transition-colors text-left"
+                >
+                  Latest Features
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => scrollToSection('updates')}
+                  className="hover:text-white transition-colors text-left"
+                >
+                  Recent Updates
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => scrollToSection('about')}
+                  className="hover:text-white transition-colors text-left"
+                >
+                  About
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => window.open('https://www.notion.so/contact', '_blank')}
+                  className="hover:text-white transition-colors text-left"
+                >
+                  Contact
+                </button>
+              </li>
             </ul>
           </div>
 
@@ -41,12 +79,38 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4">Resources</h4>
             <ul className="space-y-2 text-gray-400">
-              <li><a href="#" className="hover:text-white transition-colors flex items-center">
-                Official Notion <Link size={14} className="ml-1" />
-              </a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Help Center</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Community</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">API Docs</a></li>
+              <li>
+                <button 
+                  onClick={() => window.open('https://www.notion.so', '_blank')}
+                  className="hover:text-white transition-colors flex items-center"
+                >
+                  Official Notion <Link size={14} className="ml-1" />
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => window.open('https://www.notion.so/help', '_blank')}
+                  className="hover:text-white transition-colors text-left"
+                >
+                  Help Center
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => window.open('https://www.notion.so/community', '_blank')}
+                  className="hover:text-white transition-colors text-left"
+                >
+                  Community
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => window.open('https://developers.notion.com', '_blank')}
+                  className="hover:text-white transition-colors text-left"
+                >
+                  API Docs
+                </button>
+              </li>
             </ul>
           </div>
         </div>

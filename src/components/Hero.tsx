@@ -2,6 +2,13 @@
 import React from 'react';
 
 const Hero = () => {
+  const scrollToFeatures = () => {
+    const element = document.getElementById('features');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="py-20 px-4">
       <div className="container mx-auto text-center max-w-4xl">
@@ -15,10 +22,16 @@ const Hero = () => {
             that make Notion the ultimate workspace for teams and individuals.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-300 hover:scale-105">
+            <button 
+              onClick={scrollToFeatures}
+              className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-300 hover:scale-105"
+            >
               Explore Features
             </button>
-            <button className="border border-gray-300 text-gray-700 px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-all duration-300">
+            <button 
+              onClick={() => window.open('https://www.notion.so', '_blank')}
+              className="border border-gray-300 text-gray-700 px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-all duration-300"
+            >
               Watch Demo
             </button>
           </div>

@@ -5,6 +5,14 @@ import { Search, Menu, X } from 'lucide-react';
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+      setIsMenuOpen(false);
+    }
+  };
+
   return (
     <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200">
       <div className="container mx-auto px-4 py-4">
@@ -19,9 +27,24 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <a href="#features" className="text-gray-600 hover:text-gray-900 transition-colors">Features</a>
-            <a href="#updates" className="text-gray-600 hover:text-gray-900 transition-colors">Updates</a>
-            <a href="#about" className="text-gray-600 hover:text-gray-900 transition-colors">About</a>
+            <button 
+              onClick={() => scrollToSection('features')}
+              className="text-gray-600 hover:text-gray-900 transition-colors"
+            >
+              Features
+            </button>
+            <button 
+              onClick={() => scrollToSection('updates')}
+              className="text-gray-600 hover:text-gray-900 transition-colors"
+            >
+              Updates
+            </button>
+            <button 
+              onClick={() => scrollToSection('about')}
+              className="text-gray-600 hover:text-gray-900 transition-colors"
+            >
+              About
+            </button>
           </nav>
 
           {/* Search and Menu */}
@@ -42,9 +65,24 @@ const Header = () => {
         {isMenuOpen && (
           <nav className="md:hidden mt-4 pb-4 border-t border-gray-200 pt-4">
             <div className="flex flex-col space-y-3">
-              <a href="#features" className="text-gray-600 hover:text-gray-900 transition-colors">Features</a>
-              <a href="#updates" className="text-gray-600 hover:text-gray-900 transition-colors">Updates</a>
-              <a href="#about" className="text-gray-600 hover:text-gray-900 transition-colors">About</a>
+              <button 
+                onClick={() => scrollToSection('features')}
+                className="text-gray-600 hover:text-gray-900 transition-colors text-left"
+              >
+                Features
+              </button>
+              <button 
+                onClick={() => scrollToSection('updates')}
+                className="text-gray-600 hover:text-gray-900 transition-colors text-left"
+              >
+                Updates
+              </button>
+              <button 
+                onClick={() => scrollToSection('about')}
+                className="text-gray-600 hover:text-gray-900 transition-colors text-left"
+              >
+                About
+              </button>
             </div>
           </nav>
         )}

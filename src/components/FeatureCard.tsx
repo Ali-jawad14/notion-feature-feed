@@ -31,6 +31,11 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ feature, index }) => {
     return colors[category as keyof typeof colors] || "bg-gray-100 text-gray-800";
   };
 
+  const handleLearnMore = () => {
+    // Open Notion's official website in a new tab
+    window.open('https://www.notion.so', '_blank');
+  };
+
   return (
     <div 
       className={`bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden cursor-pointer transform hover:scale-105 ${
@@ -76,7 +81,10 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ feature, index }) => {
         {/* Footer */}
         <div className="flex items-center justify-between pt-4 border-t border-gray-100">
           <span className="text-sm text-gray-500">{feature.date}</span>
-          <button className="text-purple-600 hover:text-purple-800 font-medium text-sm transition-colors">
+          <button 
+            onClick={handleLearnMore}
+            className="text-purple-600 hover:text-purple-800 font-medium text-sm transition-colors"
+          >
             Learn More →
           </button>
         </div>
